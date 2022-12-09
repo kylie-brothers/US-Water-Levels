@@ -1,0 +1,17 @@
+Raw Data Files for the following stations:
+
+- The Battery, New York: https://tidesandcurrents.noaa.gov/stationhome.html?id=8518750
+- Virginia Key, Biscayne Bay, Florida:  https://tidesandcurrents.noaa.gov/stationhome.html?id=8723214
+- Galveston Pier 21, Texas: https://tidesandcurrents.noaa.gov/stationhome.html?id=8771450
+- Monterey, California: https://tidesandcurrents.noaa.gov/stationhome.html?id=9413450
+- Prudhoe Bay, Alaska: https://tidesandcurrents.noaa.gov/stationhome.html?id=9497645
+- Honolulu, Hawaii:	https://tidesandcurrents.noaa.gov/stationhome.html?id=1612340
+
+
+Data Attributes Pulled:
+
+Water levels by month from Jan 2000 - Dec 2022
+Standard Units
+GMT Timezone
+MLLW (Mean Lower Low Water) Datum
+
