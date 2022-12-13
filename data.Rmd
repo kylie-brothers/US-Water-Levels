@@ -1,8 +1,53 @@
-# Data 
+# Data
 
 ## Sources
 
+```{r}
+
+# Import all raw data from GitHub and add column dictating the state
+AK <- cbind(state = 'AK', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/AK_WL_Monthly.csv"))
+CA <- cbind(state = 'CA', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/CA_WL_Monthly.csv"))
+FL <- cbind(state = 'FL', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/FL_WL_Monthly.csv"))
+HI <- cbind(state = 'HI', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/HI_WL_Monthly.csv"))
+NY <- cbind(state = 'NY', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/NY_WL_Monthly.csv"))
+TX <- cbind(state = 'TX', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/TX_WL_Monthly.csv"))
+
+```
+
+The National Oceanic and Atmospheric Administration (NOAA) gathers information on numerous stations across the United States to monitor tides and currents. The data is collected and recorded through sensors placed on each of the stations. We will be specifically looking at the recorded water levels for 6 different stations in different regions and states throughout the United States; the stations we will be analyzing are The Battery, NY; Virginia Key, Biscayne Bay, FL; Galveston Pier 21, TX; Monterey, CA; Prudhoe Bay, AK; and Honolulu, HI.
+
+We collected water levels for each station from January 2020 - November 2022 on a monthly basis; it is important to note that some stations have data through part of December, which will be removed in the data transformation phase. These collections included all of the possible datums (the base elevation that was used for collection purposes), recorded in feet, but we will specifically be looking at the Mean Tide Level (MTL). Since the data is collected monthly, the time is always 00:00 GMT. By collecting the data on a monthly basis, we will be able to get the best overall long-term view of the data, 22 years.This will also ensure that the data is manageable and not overwhelming, while still being able to view long term trends and seasonality.
+
+Currently, the data has character, number, and integer fields; the only field that will need to be transformed is the date field. Additionally, majority of the states have 274 or 275 records depending on if they have December included, which will be transformed to only view data from November and prior. The only state that has less than 274 records is Alaska, which will be explored further in the missing patterns sections.
+
 ## Cleaning / transformation
+
+```{r}
+# create full data set with all locations
+df <- rbind(AK, CA, FL, HI, NY, TX)
+
+# determine the data types of each field
+data_types <- str(df)
+
+# transform date column to date data type
+df$Date <- as.Date(df$Date)
+df <- df[df$Date<='2022-11-01',] # Only look at value from November and prior
+```
+
+Overall, the data set was fairly clean and already in a usable state. However, each station had to be downloaded from the NOAA website individually, so we had to bind all of the data sets together to create one manageable data frame. Prior to binding the data frames, we created a new column for the State. Once bound together, the only field that needed to be transformed into the correct data type was the date field; we needed to convert from character to YYYY-MM-DD data format.
 
 ## Missing value analysis
 
+```{r}
+library(dplyr)
+library(tibble)
+library(tidyr)
+library(ggplot2)
+library(forcats)
+library(redav)
+
+# determine which fields have missing values
+colSums(is.na(df)) %>% sort(decreasing = TRUE)
+plot_missing(df, percent = TRUE)
+
+```
