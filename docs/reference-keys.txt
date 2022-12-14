@@ -6,7 +6,12 @@ data
 sources
 cleaning-transformation
 missing-value-analysis
-alaska-missing-values
+data-with-missing-months
+alaska
+texas
 results
+mean-high-water-mhw
+mean-low-water-mlw
+mean-tide-level-mtl
 interactive-component
 conclusion

@@ -59,6 +59,7 @@ Since there are many other datums that we can use for the analysis and to view t
 ### Data with Missing Months
 
 ```{r}
+library(lubridate)
 ggplot(df, aes(x = year(ymd(Date)))) +
   geom_bar()+
   scale_x_continuous(breaks=seq(2000,2022,by=2)) +
@@ -72,8 +73,6 @@ Since we have 6 stations and should only have 1 observation per month per statio
 #### Alaska
 
 ```{r}
-library(lubridate)
-
 # explore missing dates in Alaska
 AK_missing <- df %>% filter(state=="AK")
 #All years
