@@ -6,6 +6,7 @@ data
 sources
 cleaning-transformation
 missing-value-analysis
+alaska-missing-values
 results
 interactive-component
 conclusion
