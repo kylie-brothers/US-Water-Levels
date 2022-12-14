@@ -1,1 +1,27 @@
 # Results
+```{r}
+# Create dataframe
+AK <- cbind(state = 'AK', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/AK_WL_Monthly.csv"))
+CA <- cbind(state = 'CA', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/CA_WL_Monthly.csv"))
+FL <- cbind(state = 'FL', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/FL_WL_Monthly.csv"))
+HI <- cbind(state = 'HI', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/HI_WL_Monthly.csv"))
+NY <- cbind(state = 'NY', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/NY_WL_Monthly.csv"))
+TX <- cbind(state = 'TX', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/TX_WL_Monthly.csv"))
+
+df <- rbind(AK, CA, FL, HI, NY, TX)
+df$Date <- as.Date(df$Date)
+df <- df[df$Date<='2022-10-01',]
+```
+
+
+## Mean High Water (MHW)
+
+
+
+## Mean Low Water (MLW)
+
+
+
+## Mean Tide Level (MTL)
+
+
