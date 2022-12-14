@@ -16,7 +16,7 @@ TX <- cbind(state = 'TX', read.csv("https://raw.githubusercontent.com/kylie-brot
 
 The National Oceanic and Atmospheric Administration (NOAA) gathers information on numerous stations across the United States to monitor tides and currents. The data is collected and recorded through sensors placed on each of the stations. We will be specifically looking at the recorded water levels for 6 different stations in different regions and states throughout the United States; the stations we will be analyzing are The Battery, NY; Virginia Key, Biscayne Bay, FL; Galveston Pier 21, TX; Monterey, CA; Prudhoe Bay, AK; and Honolulu, HI.
 
-We collected water levels for each station from January 2020 - October 2022 on a monthly basis; it is important to note that some stations have data through part of November and December, which will be removed in the data transformation phase. These collections included all of the possible datums (the base elevation that was used for collection purposes), recorded in feet, but we will specifically be looking at the Mean Tide Level (MTL). Since the data is collected monthly, the time is always 00:00 GMT. By collecting the data on a monthly basis, we will be able to get the best overall long-term view of the data, ~23 years. This will also ensure that the data is manageable and not overwhelming, while still being able to view long term trends and seasonality.
+We collected water levels for each station from January 2020 - October 2022 on a monthly basis; it is important to note that some stations have data through part of November and December, which will be removed in the data transformation phase. These collections included all of the possible data (the base elevation that was used for collection purposes), recorded in feet, but we will specifically be looking at the Mean Tide Level (MTL). Since the data is collected monthly, the time is always 00:00 GMT. By collecting the data on a monthly basis, we will be able to get the best overall long-term view of the data, roughly 23 years. This will also ensure that the data is manageable and not overwhelming, while still being able to view long term trends and seasonality.
 
 Currently, the data has character, number, and integer fields; the only field that will need to be transformed is the date field. Additionally, majority of the states have 274 or 275 records depending on if they have November or December included, which will be transformed to only view data from October 2022 and prior. The only states that has less than 274 records are Alaska and Texas, which will be explored further in the missing patterns sections.
 
@@ -54,7 +54,7 @@ plot_missing(df, percent = TRUE)
 
 Based on above charts, we can see that there are only two variables with missing data points - Lowest Tide and Highest Tide.
 
-Since there are many other datums that we can use for the analysis and to view trends, seasonality, and make comparisons. Therefore, we will choose to omit these two fields from our analysis and use the other datums.
+Since there are many other data measurements that we can use for the analysis and to view trends, seasonality, and make comparisons. Therefore, we will choose to omit these two fields from our analysis and use the other data measurements.
 
 ### Data with Missing Months
 

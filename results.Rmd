@@ -1,4 +1,5 @@
 # Results
+
 ```{r}
 # Create dataframe
 AK <- cbind(state = 'AK', read.csv("https://raw.githubusercontent.com/kylie-brothers/US-Water-Levels/main/Raw%20Data/AK_WL_Monthly.csv"))
@@ -13,15 +14,124 @@ df$Date <- as.Date(df$Date)
 df <- df[df$Date<='2022-10-01',]
 ```
 
+## Mean High Water (ft)
 
-## Mean High Water (MHW)
+```{r}
+#boxplot
+ggplot(df,aes(x=state,y=MHW..ft.))+geom_boxplot() +
+  labs(x = "State", 
+       y = "Mean High Water (ft)", 
+       title = "Mean High Water Values from 2000 - 2022 by State") +
+  theme_minimal()
+```
+
+Throughout the course of about 23 years, the National Oceanic and Atmospheric Administration (NOAA) has been collecting and recording the mean high water levels, measured in feet, for each of the stations around the United States. In the above graph, we can see all of the average of all of the high water heights per month for each station. By looking at these graphs, we can see that Alaska has the lowest overall, regardless of the time of the year or the trend. On the other hand, we can also see that California and New York have similar median water levels. However, it is important to note that New York has more variability and a higher H-spread.
+
+```{r}
+#histogram
+ggplot(df, aes(x=MHW..ft.))+
+  geom_histogram(color="darkblue", fill="lightblue", binwidth = 1)+
+  facet_wrap(~state)+
+  scale_x_continuous(breaks=seq(0,6,by=1)) +
+  labs(x="Mean High Water (ft)",
+       y="Count",
+       title = "Mean High Water Values from 2000 - 2022 by State") +
+  theme_minimal()
+```
+
+
+
+```{r}
+# Heatmap
+ggplot(df, aes(Date, MHW..ft.)) + 
+  geom_bin2d() +
+  facet_wrap(~state) +
+  labs(x="Date",
+       y="Mean High Water (ft)",
+       title = "Mean High Water from 2000 - 2022 by State") +
+  theme_minimal()
+```
 
 
 
 ## Mean Low Water (MLW)
 
+```{r}
+#boxplot
+ggplot(df,aes(x=state,y=MLW..ft.))+
+  geom_boxplot() +
+  labs(x = "State", 
+       y = "Mean Low Water (ft)", 
+       title = "Mean Low Water Values from 2000 - 2022 by State") +
+  theme_minimal()
+```
+
+Compared to the 
+
+```{r}
+#histogram
+ggplot(df, aes(x=MLW..ft.))+
+  geom_histogram(color="darkblue", fill="lightblue", binwidth = 1)+
+  facet_wrap(~state)+
+  scale_x_continuous(breaks=seq(0,6,by=1)) +
+  labs(x="Mean Low Water (ft)",
+       y="Count",
+       title = "Mean Low Water Values from 2000 - 2022 by State") +
+  theme_minimal()
+```
 
 
-## Mean Tide Level (MTL)
+
+```{r}
+# Heatmap
+ggplot(df, aes(Date, MLW..ft.)) + 
+  geom_bin2d() +
+  facet_wrap(~state) +
+  labs(x="Date",
+       y="Mean Low Water (ft)",
+       title = "Mean Low Water from 2000 - 2022 by State") +
+  theme_minimal()
+```
+
+
+
+## Time Series
+
+### Mean High Water
+
+```{r}
+ggplot(df, aes(x = Date, y = MHW..ft., colour = state))  + 
+  geom_line(alpha = .35)+ 
+  geom_smooth(method = "loess", span = .5, se = FALSE) +
+  labs(x="Time (months)",
+       y="Mean High Water (ft)",
+       title = "Mean High Water Values from 2000 - 2022 by State") +
+  theme_minimal()
+```
+
+
+
+### Mean Low Water
+
+```{r}
+ggplot(df, aes(x = Date, y = MLW..ft., colour = state)) + 
+  geom_line(alpha = .35)+
+  geom_smooth(method = "loess", span = .5, se = FALSE) +
+  labs(x="Time (months)",
+       y="Mean Low Water (ft)",
+       title = "Mean Low Water Values from 2000 - 2022 by State") +
+  theme_minimal()
+```
+
+
+
+## Scatterplot Matrices
+
+```{r}
+df_scatter <- df %>% 
+  dplyr::select(Date, MHW..ft., MLW..ft.)
+
+plot(df_scatter)
+```
 
 
