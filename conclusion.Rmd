@@ -1,2 +1,9 @@
 # Conclusion
 
+Overall, through analysis of the several different measurements taken in the data, it appears that there is a minor increase in the water level over the past 20 years for each of the locations. This is indicative of a general increase in water levels surrounding United States territories. This increase is most prominent in data corresponding to areas in Texas and Florida, indicating the possibility that areas bordering the Gulf of Mexico in particular may be increasing in water level. 
+
+
+When choosing the data set, we decided to use the data given for a monthly basis, rather than that of a daily or even 6-minute basis, which was also available for the data. We decided this because taking measurements at too small an interval may have made it difficult to analyze the data over a large period of time, and generalization of the data to that of monthly results allowed the data to be easily read over a long period of time and still have the data be specific enough to be analyzed. 
+
+
+While the data set was very suited to the project, requiring only minor adjustments to be utilized effectively for analysis, the time frame of only 2000-2022 appears to have been too small. Should this project be done again, it would most likely be beneficial to expand the timeframe to a larger length of time in order to better highlight any gradual changes over time that the data may indicate.
