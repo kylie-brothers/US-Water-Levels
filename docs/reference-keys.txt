@@ -10,8 +10,10 @@ data-with-missing-months
 alaska
 texas
 results
-mean-high-water-mhw
+mean-high-water-ft
 mean-low-water-mlw
-mean-tide-level-mtl
+time-series
+mean-high-water
+mean-low-water
 interactive-component
 conclusion

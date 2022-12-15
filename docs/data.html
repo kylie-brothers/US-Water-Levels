@@ -23,7 +23,7 @@
 <meta name="author" content="Kylie Brothers, Spencer Davis, and Sheris Johnet" />
 
 
-<meta name="date" content="2022-12-14" />
+<meta name="date" content="2022-12-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -89,9 +89,13 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#mean-high-water-mhw"><i class="fa fa-check"></i><b>4.1</b> Mean High Water (MHW)</a></li>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#mean-high-water-ft"><i class="fa fa-check"></i><b>4.1</b> Mean High Water (ft)</a></li>
 <li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#mean-low-water-mlw"><i class="fa fa-check"></i><b>4.2</b> Mean Low Water (MLW)</a></li>
-<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#mean-tide-level-mtl"><i class="fa fa-check"></i><b>4.3</b> Mean Tide Level (MTL)</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#time-series"><i class="fa fa-check"></i><b>4.3</b> Time Series</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="results.html"><a href="results.html#mean-high-water"><i class="fa fa-check"></i><b>4.3.1</b> Mean High Water</a></li>
+<li class="chapter" data-level="4.3.2" data-path="results.html"><a href="results.html#mean-low-water"><i class="fa fa-check"></i><b>4.3.2</b> Mean Low Water</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive component</a></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
@@ -119,7 +123,7 @@
 <div id="sources" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Sources<a href="data.html#sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The National Oceanic and Atmospheric Administration (NOAA) gathers information on numerous stations across the United States to monitor tides and currents. The data is collected and recorded through sensors placed on each of the stations. We will be specifically looking at the recorded water levels for 6 different stations in different regions and states throughout the United States; the stations we will be analyzing are The Battery, NY; Virginia Key, Biscayne Bay, FL; Galveston Pier 21, TX; Monterey, CA; Prudhoe Bay, AK; and Honolulu, HI.</p>
-<p>We collected water levels for each station from January 2020 - October 2022 on a monthly basis; it is important to note that some stations have data through part of November and December, which will be removed in the data transformation phase. These collections included all of the possible datums (the base elevation that was used for collection purposes), recorded in feet, but we will specifically be looking at the Mean Tide Level (MTL). Since the data is collected monthly, the time is always 00:00 GMT. By collecting the data on a monthly basis, we will be able to get the best overall long-term view of the data, ~23 years. This will also ensure that the data is manageable and not overwhelming, while still being able to view long term trends and seasonality.</p>
+<p>We collected water levels for each station from January 2020 - October 2022 on a monthly basis; it is important to note that some stations have data through part of November and December, which will be removed in the data transformation phase. These collections included all of the possible types of water level recordings, recorded in feet, but we will specifically be looking at the Mean High Water (MHW) and Mean Low Water (MLW). Since the data is collected monthly, the time is always 00:00 GMT. By collecting the data on a monthly basis, we will be able to get the best overall long-term view of the data, roughly 23 years. This will also ensure that the data is manageable and not overwhelming, while still being able to view long term trends and seasonality.</p>
 <p>Currently, the data has character, number, and integer fields; the only field that will need to be transformed is the date field. Additionally, majority of the states have 274 or 275 records depending on if they have November or December included, which will be transformed to only view data from October 2022 and prior. The only states that has less than 274 records are Alaska and Texas, which will be explored further in the missing patterns sections.</p>
 </div>
 <div id="cleaning-transformation" class="section level2 hasAnchor" number="3.2">
@@ -147,11 +151,11 @@
 ##           0           0           0           0           0           0</code></pre>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Based on above charts, we can see that there are only two variables with missing data points - Lowest Tide and Highest Tide.</p>
-<p>Since there are many other datums that we can use for the analysis and to view trends, seasonality, and make comparisons. Therefore, we will choose to omit these two fields from our analysis and use the other datums.</p>
+<p>Since there are many other data measurements that we can use for the analysis and to view trends, seasonality, and make comparisons. Therefore, we will choose to omit these two fields from our analysis and use the other data measurements.</p>
 <div id="data-with-missing-months" class="section level3 hasAnchor" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Data with Missing Months<a href="data.html#data-with-missing-months" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<p>Since we have 6 stations and should only have 1 observation per month per station, we should expect to see 72 observations per year. By looking at the above chart of a count of all data by year, we can see that there are a few months missing. By data counts, mentioned earlier, we know that Alaska and Texas are the stations causing the missing values. Those are explored further and broken down by month.</p>
+<p>Since we have 6 stations and should only have 1 observation per month per station, we should expect to see 72 observations per year. By looking at the above chart of a count of all data by year, we can see that there are a few months missing. By data counts, mentioned earlier, and the fill color on the above graph, we know that Alaska and Texas are the stations causing the missing values. Those are explored further and broken down by month.</p>
 <div id="alaska" class="section level4 hasAnchor" number="3.3.1.1">
 <h4><span class="header-section-number">3.3.1.1</span> Alaska<a href="data.html#alaska" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
