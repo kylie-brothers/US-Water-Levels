@@ -14,7 +14,7 @@ df$Date <- as.Date(df$Date)
 df <- df[df$Date<='2022-10-01',]
 ```
 
-## Mean High Water (ft)
+## Mean High Water (MHW)
 
 ```{r}
 library(ggplot2)
