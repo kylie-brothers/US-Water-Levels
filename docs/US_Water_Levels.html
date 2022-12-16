@@ -1,0 +1,172 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>boxplot</title>
+		<script src="https://d3js.org/d3.v7.js"></script>  <!-- link to D3 library -->
+
+
+
+	</head>
+	<div id="my_div"></div>
+
+	<body>
+	    <h1>Mean Tide Level in 2020 for Each State</h1>
+	 <p id="state" style="background-color: silver; color: black;">
+Please pick your state.
+</p>
+<p>
+  <input type="radio" id="html" name="fav_state" value="AK">  Arkansas
+  <input type="radio" id="html" name="fav_state" value="CA"> California
+  <input type="radio" id="html" name="fav_state" value="FL"> Florida
+  <input type="radio" id="html" name="fav_state" value="HI">Hawaii
+  <input type="radio" id="html" name="fav_state" value="NY">New York
+  <input type="radio" id="html" name="fav_state" value="TX"> Texas
+</p>
+
+<svg id="2022" width="600" height="500">
+<g transform="translate(50, 20)">
+  <g transform="translate(0, 290)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle">
+    <path class="domain" stroke="currentColor" d="M0,6V0H500V6"></path>
+    <g class="tick" opacity="1" transform="translate(0,0)">
+      <line stroke="currentColor" y2="6"></line>
+      <text fill="currentColor" y="9" dy="0.71em">Jan</text></g>
+      <g class="tick" opacity="1" transform="translate(41.666666666666664,0)">
+        <line stroke="currentColor" y2="6"></line>
+        <text fill="currentColor" y="9" dy="0.71em">Feb</text></g>
+        <g class="tick" opacity="1" transform="translate(83.33333333333333,0)"><line stroke="currentColor" y2="6"></line>
+        <text fill="currentColor" y="9" dy="0.71em">Mar</text></g>
+        <g class="tick" opacity="1" transform="translate(125,0)"><line stroke="currentColor" y2="6"></line>
+        <text fill="currentColor" y="9" dy="0.71em">April</text></g>
+        <g class="tick" opacity="1" transform="translate(166.66666666666666,0)">
+          <line stroke="currentColor" y2="6"></line>
+          <text fill="currentColor" y="9" dy="0.71em">May</text></g>
+          <g class="tick" opacity="1" transform="translate(208.33333333333334,0)">
+            <line stroke="currentColor" y2="6"></line>
+            <text fill="currentColor" y="9" dy="0.71em">June</text></g>
+            <g class="tick" opacity="1" transform="translate(250,0)">
+              <line stroke="currentColor" y2="6"></line>
+              <text fill="currentColor" y="9" dy="0.71em">July</text></g>
+              <g class="tick" opacity="1" transform="translate(291.6666666666667,0)"><line stroke="currentColor" y2="6"></line>
+              <text fill="currentColor" y="9" dy="0.71em">Aug</text></g>
+              <g class="tick" opacity="1" transform="translate(333.3333333333333,0)"><line stroke="currentColor" y2="6"></line>
+              <text fill="currentColor" y="9" dy="0.71em">Sept</text></g>
+              <g class="tick" opacity="1" transform="translate(375,0)">
+                <line stroke="currentColor" y2="6"></line>
+                <text fill="currentColor" y="9" dy="0.71em">Oct</text></g>
+                <g class="tick" opacity="1" transform="translate(416.6666666666667,0)"><line stroke="currentColor" y2="6"></line>
+                <text fill="currentColor" y="9" dy="0.71em">Nov</text></g>
+                <g class="tick" opacity="1" transform="translate(458.3333333333333,0)"><line stroke="currentColor" y2="6"></line>
+                <text fill="currentColor" y="9" dy="0.71em">Dec</text></g>
+               
+                  </g>
+                  <g fill="none" font-size="10" font-family="sans-serif" text-anchor="end">
+                    <path class="domain" stroke="currentColor" d="M-6,300H0V0H-6"></path>
+                   
+                    
+                          <g class="tick" opacity="1" transform="translate(0,262.5)"><line stroke="currentColor" x2="-6"></line>
+                          <text fill="currentColor" x="-9" dy="0.32em">.5</text></g>
+                          <g class="tick" opacity="1" transform="translate(0,233.33333333333337)">
+                            <line stroke="currentColor" x2="-6"></line>
+                            <text fill="currentColor" x="-9" dy="0.32em">1</text></g>
+                            <g class="tick" opacity="1" transform="translate(0,204.16666666666663)">
+                              <line stroke="currentColor" x2="-6"></line>
+                              <text fill="currentColor" x="-9" dy="0.32em">1.5</text></g>
+                              <g class="tick" opacity="1" transform="translate(0,175)">
+                                <line stroke="currentColor" x2="-6"></line>
+                                <text fill="currentColor" x="-9" dy="0.32em">2</text></g>
+                                <g class="tick" opacity="1" transform="translate(0,145.83333333333331)">
+                                  <line stroke="currentColor" x2="-6"></line>
+                                  <text fill="currentColor" x="-9" dy="0.32em">2.5</text></g>
+                                  <g class="tick" opacity="1" transform="translate(0,116.66666666666669)">
+                                    <line stroke="currentColor" x2="-6"></line>
+                                    <text fill="currentColor" x="-9" dy="0.32em">3</text></g>
+                                    <g class="tick" opacity="1" transform="translate(0,87.5)">
+                                      <line stroke="currentColor" x2="-6"></line>
+                                      <text fill="currentColor" x="-9" dy="0.32em">3.5</text></g>
+                                      <g class="tick" opacity="1" transform="translate(0,58.33333333333332)">
+                                        <line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">4</text></g>
+                                        <g class="tick" opacity="1" transform="translate(0,29.16666666666668)">
+                                          <line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">3.5</text></g>
+                                          <g class="tick" opacity="1" transform="translate(0,0)">
+                                            <line stroke="currentColor" x2="-6"></line>
+                                            <text fill="currentColor" x="-9" dy="0.32em">4</text></g></g>
+                                            <path class="line" fill="none" stroke="red" stroke-width="1.5" id="ak"d="M0,262.66666666666669 L41.666666666666664,266.66666666666669 L83.33333333333333,250 L125,260.66666666666669 L166.66667,272.66666666666669 L208.33333333333334,225.66666666666669 L250,250.66666666 L291.66666,243.66666666 L333.333333333333,253.66666666 L375,262.66666666666669 L416.6666666666667,235.66666666666669 L458.33333333,255"></path>
+                                              <path class="line" fill="none" stroke="blue" stroke-width="1.5" id="ca" d="M0,121.66666666666669 L41.666666666666664,120.66666666666669 L83.33333333333333,116 L125,126 L166.66667,123.66666666666669 L208.33333333333334,120.666667 L250,116 L291.66666,116L333.333333333333,110 L375,107 L416.6666666666667,120.66666666666669 L458.33333333,125"></path>
+                                               <path class="line" fill="none" stroke="orange" stroke-width="1.5" id="fl" d="M0,210.66666666666669 L41.666666666666664,215.66666666666669 L83.33333333333333,215 L125,205.666666666667 L166.66667,193.66666666666669 L208.33333333333334,190.666667 L250,200 L291.66666,193 L333.333333333333,165 L375,157 L416.6666666666667,165.66666666666669 L458.33333333,200"></path>
+                                                                                             <path class="line" fill="none" stroke="green" stroke-width="1.5" id="hi" d="M0,234.66666666666669 L41.666666666666664,240.66666666666669 L83.33333333333333,234 L125,233.666666666667 L166.66667,223.66666666666669 L208.33333333333334,207 L250,196 L291.66666,198 L333.333333333333,196 L375,193 L416.6666666666667,202 L458.33333333,208"></path>
+                           <path class="line" fill="none" stroke="maroon" stroke-width="1.5" id="ny" d="M0,130 L41.666666666666664,139.66666666666669 L83.33333333333333,120 L125,115 L166.66667,126.66666666666669 L208.33333333333334,116 L250,110 L291.66666,116 L333.333333333333,107 L375,116 L416.6666666666667,130 L458.33333333,127"></path>                                            
+                              <path class="line" fill="none" stroke="black" stroke-width="1.5" id="tx" d="M0,215 L41.666666666666664,241.66666666666669 L83.33333333333333,215 L125,178 L166.66667,188.66666666666669 L208.33333333333334,186 L250,194 L291.66666,190 L333.333333333333,155 L375,178 L416.6666666666667,178 L458.33333333,241"></path>                                              </g>
+                                       </g>
+  
+                   </svg>
+
+	<script>
+	const svg = d3.select("svg")
+svg.append("rect").attr("x",900).attr("y",130).attr("r", 6).style("fill", "red")
+svg.append("rect").attr("x",200).attr("y",160).attr("r", 6).style("fill", "blue"")
+svg.append("rect").attr("x",200).attr("y",190).attr("r", 6).style("fill", "orange")
+svg.append("rect").attr("x",200).attr("y",210).attr("r", 6).style("fill", "green")
+svg.append("rect").attr("x",200).attr("y",240).attr("r", 6).style("fill", "maroon")
+svg.append("rect").attr("x",200).attr("y",270).attr("r", 6).style("fill", "black")
+svg.append("text").attr("x", 220).attr("y", 130).text("AK").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 220).attr("y", 160).text("CA").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 220).attr("y", 190).text("FL").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 220).attr("y", 210).text("HI").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 220).attr("y", 240).text("NY").style("font-size", "15px").attr("alignment-baseline","middle")
+svg.append("text").attr("x", 220).attr("y", 270).text("TX").style("font-size", "15px").attr("alignment-baseline","middle")
+d3.select("svg").select("path").on("mouseover",function(event)) {
+  const st=d3.select(this).attr("id");
+  d3.select("text").text(` ${st}`);
+}
+	d3.selectAll("input")
+  .on("click", function(event) {
+    if (d3.select(this).node().value == "Arkansas") {
+      d3.select("svg").select("path#fl").style("opacity",0); 
+      d3.select("svg").select("path#ny").style("opacity",0); 
+      d3.select("svg").select("path#ca").style("opacity",0); 
+      d3.select("svg").select("path#hi").style("opacity",0); 
+      d3.select("svg").select("path#tx").style("opacity",0); 
+   }
+   if (d3.select(this).node().value == "California") {
+      d3.select("svg").select("path#fl").style("opacity",0); 
+      d3.select("svg").select("path#ny").style("opacity",0); 
+      d3.select("svg").select("path#ak").style("opacity",0); 
+      d3.select("svg").select("path#hi").style("opacity",0); 
+      d3.select("svg").select("path#tx").style("opacity",0); 
+   }
+   if (d3.select(this).node().value == "Florida") {
+      d3.select("svg").select("path#ca").style("opacity",0); 
+      d3.select("svg").select("path#ny").style("opacity",0); 
+      d3.select("svg").select("path#ak").style("opacity",0); 
+      d3.select("svg").select("path#hi").style("opacity",0); 
+      d3.select("svg").select("path#tx").style("opacity",0); 
+   }
+   if (d3.select(this).node().value == "Hawaii") {
+      d3.select("svg").selectselect("path#ca").style("opacity",0); 
+      d3.select("svg").select("path#ny").style("opacity",0); 
+      d3.select("svg").select("path#ak").style("opacity",0); 
+      d3.select("svg").select("path#fl").style("opacity",0); 
+      d3.select("svg").select("path#tx").style("opacity",0); 
+   }
+   if (d3.select(this).node().value == "New York") {
+      d3.select("svg").select("path#ca").style("opacity",0); 
+      d3.select("svg").select("path#hi").style("opacity",0); 
+      d3.select("svg").select("path#ak").style("opacity",0); 
+      d3.select("svg").select("path#fl").style("opacity",0); 
+      d3.select("svg").select("path#tx").style("opacity",0); 
+   }
+   if (d3.select(this).node().value == "Texas") {
+      d3.select("svg").select("path#ca").style("opacity",0); 
+      d3.select("svg").select("path#hi").style("opacity",0); 
+      d3.select("svg").select("path#ak").style("opacity",0); 
+      d3.select("svg").select("path#fl").style("opacity",0); 
+      d3.select("svg").select("path#ny").style("opacity",0); 
+   }
+    });
+
+  
+		</script>
+
+	</body>
+
+</html>
