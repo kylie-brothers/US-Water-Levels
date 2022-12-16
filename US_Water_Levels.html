@@ -15,12 +15,12 @@
 Please pick your state.
 </p>
 <p>
-  <input type="radio" id="html" name="fav_state" value="AK">  Arkansas
-  <input type="radio" id="html" name="fav_state" value="CA"> California
-  <input type="radio" id="html" name="fav_state" value="FL"> Florida
-  <input type="radio" id="html" name="fav_state" value="HI">Hawaii
-  <input type="radio" id="html" name="fav_state" value="NY">New York
-  <input type="radio" id="html" name="fav_state" value="TX"> Texas
+  <input type="radio" id="html" name="fav_state" value="AK">  Arkansas (red)
+  <input type="radio" id="html" name="fav_state" value="CA"> California (blue)
+  <input type="radio" id="html" name="fav_state" value="FL"> Florida (orange)
+  <input type="radio" id="html" name="fav_state" value="HI">Hawaii (green)
+  <input type="radio" id="html" name="fav_state" value="NY">New York (maroon)
+  <input type="radio" id="html" name="fav_state" value="TX"> Texas (black)
 </p>
 
 <svg id="2022" width="600" height="500">
@@ -103,11 +103,11 @@ Please pick your state.
 	<script>
 	const svg = d3.select("svg")
 svg.append("rect").attr("x",900).attr("y",130).attr("r", 6).style("fill", "red")
-svg.append("rect").attr("x",200).attr("y",160).attr("r", 6).style("fill", "blue"")
-svg.append("rect").attr("x",200).attr("y",190).attr("r", 6).style("fill", "orange")
-svg.append("rect").attr("x",200).attr("y",210).attr("r", 6).style("fill", "green")
-svg.append("rect").attr("x",200).attr("y",240).attr("r", 6).style("fill", "maroon")
-svg.append("rect").attr("x",200).attr("y",270).attr("r", 6).style("fill", "black")
+svg.append("rect").attr("x",900).attr("y",160).attr("r", 6).style("fill", "blue"")
+svg.append("rect").attr("x",900).attr("y",190).attr("r", 6).style("fill", "orange")
+svg.append("rect").attr("x",900).attr("y",210).attr("r", 6).style("fill", "green")
+svg.append("rect").attr("x",900).attr("y",240).attr("r", 6).style("fill", "maroon")
+svg.append("rect").attr("x",900).attr("y",270).attr("r", 6).style("fill", "black")
 svg.append("text").attr("x", 220).attr("y", 130).text("AK").style("font-size", "15px").attr("alignment-baseline","middle")
 svg.append("text").attr("x", 220).attr("y", 160).text("CA").style("font-size", "15px").attr("alignment-baseline","middle")
 svg.append("text").attr("x", 220).attr("y", 190).text("FL").style("font-size", "15px").attr("alignment-baseline","middle")
@@ -121,46 +121,46 @@ d3.select("svg").select("path").on("mouseover",function(event)) {
 	d3.selectAll("input")
   .on("click", function(event) {
     if (d3.select(this).node().value == "Arkansas") {
-      d3.select("svg").select("path#fl").style("opacity",0); 
-      d3.select("svg").select("path#ny").style("opacity",0); 
-      d3.select("svg").select("path#ca").style("opacity",0); 
-      d3.select("svg").select("path#hi").style("opacity",0); 
-      d3.select("svg").select("path#tx").style("opacity",0); 
+      svg.select("path#fl").style("stroke-opacity",0); 
+      svg.select("path#ny").style("stroke-opacity",0); 
+      svg.select("path#ca").style("stroke-opacity",0); 
+      svg.select("path#hi").style("stroke-opacity",0); 
+      svg.select("path#tx").style("stroke-opacity",0); 
    }
    if (d3.select(this).node().value == "California") {
-      d3.select("svg").select("path#fl").style("opacity",0); 
-      d3.select("svg").select("path#ny").style("opacity",0); 
-      d3.select("svg").select("path#ak").style("opacity",0); 
-      d3.select("svg").select("path#hi").style("opacity",0); 
-      d3.select("svg").select("path#tx").style("opacity",0); 
+    svg.select("path#fl").style("stroke-opacity",0); 
+      svg.select("path#ny").style("stroke-opacity",0); 
+      svg.select("path#ak").style("stroke-opacity",0); 
+      svg.select("path#hi").style("stroke-opacity",0); 
+      svg.select("path#tx").style("stroke-opacity",0); 
    }
    if (d3.select(this).node().value == "Florida") {
-      d3.select("svg").select("path#ca").style("opacity",0); 
-      d3.select("svg").select("path#ny").style("opacity",0); 
-      d3.select("svg").select("path#ak").style("opacity",0); 
-      d3.select("svg").select("path#hi").style("opacity",0); 
-      d3.select("svg").select("path#tx").style("opacity",0); 
+      svg.select("path#ca").style("stroke-opacity",0); 
+      svg.select("path#ny").style("stroke-opacity",0); 
+      svg.select("path#ak").style("stroke-opacity",0); 
+     svg..select("path#hi").style("stroke-opacity",0); 
+     svg.select("path#tx").style("stroke-opacity",0); 
    }
    if (d3.select(this).node().value == "Hawaii") {
-      d3.select("svg").selectselect("path#ca").style("opacity",0); 
-      d3.select("svg").select("path#ny").style("opacity",0); 
-      d3.select("svg").select("path#ak").style("opacity",0); 
-      d3.select("svg").select("path#fl").style("opacity",0); 
-      d3.select("svg").select("path#tx").style("opacity",0); 
+     svg..selectselect("path#ca").style("opacity",0); 
+     svg..select("path#ny").style("stroke-opacity",0); 
+     svg.select("path#ak").style("stroke-opacity",0); 
+      svg.select("path#fl").style("stroke-opacity",0); 
+      svg.select("path#tx").style("stroke-opacity",0); 
    }
    if (d3.select(this).node().value == "New York") {
-      d3.select("svg").select("path#ca").style("opacity",0); 
-      d3.select("svg").select("path#hi").style("opacity",0); 
-      d3.select("svg").select("path#ak").style("opacity",0); 
-      d3.select("svg").select("path#fl").style("opacity",0); 
-      d3.select("svg").select("path#tx").style("opacity",0); 
+     svg.select("path#ca").style("stroke-opacity",0); 
+     svg.select("path#hi").style("stroke-opacity",0); 
+     svg.select("path#ak").style("stroke-opacity",0); 
+     svg.select("path#fl").style("stroke-opacity",0); 
+     svg.select("path#tx").style("stroke-opacity",0); 
    }
    if (d3.select(this).node().value == "Texas") {
-      d3.select("svg").select("path#ca").style("opacity",0); 
-      d3.select("svg").select("path#hi").style("opacity",0); 
-      d3.select("svg").select("path#ak").style("opacity",0); 
-      d3.select("svg").select("path#fl").style("opacity",0); 
-      d3.select("svg").select("path#ny").style("opacity",0); 
+      svg.select("path#ca").style("stroke-opacity",0); 
+     svg.select("path#hi").style("stroke-opacity",0); 
+     svg.select("path#ak").style("stroke-opacity",0); 
+      svg.select("path#fl").style("stroke-opacity",0); 
+      svg.select("path#ny").style("stroke-opacity",0); 
    }
     });
 
